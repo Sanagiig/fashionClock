@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css?family=BenchNine:300,400");
+*,*:before , *:after{
+    box-sizing: border-box;
+}
+html,body{
+    width:100%;
+    height:100%;
+    background-color: #343434;
+    margin:0;
+    padding:0;
+    font-family: 'BenchNine', sans-serif ,"Microsoft YaHei";
+}
+
+.clock-container{
+    position: fixed;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    width:500px;
+    height:500px;
+    box-shadow: 0 0 20px 3px #000, 0 0 20px rgba(0, 0, 0, 0.8) inset;
+    -webkit-box-shadow: 0 0 20px 3px #000, 0 0 20px rgba(0, 0, 0, 0.8) inset;
+    border-radius: 50%;
+    border: 20px solid black;
+}
+
+.wrap{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    height:100%;
+    border-radius: 50%;
+    color:white;
+    z-index: 999;
+}
+
+.dialer{
+    position:relative;
+    width:100%;
+    height:100%;
+    border-radius: 50%;
+
+}
+.dialer:before{
+    content:'';
+    position:absolute;
+    top:50%;
+    right:50%;
+    height: 90%;
+    width: 45%;
+    border:15px solid rgba(187, 32, 28, 0.71);
+    border-right:none;
+    border-radius: 220px 0 0 220px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    z-index: 304;
+}
+.dialer:after{
+    content: '';
+    position:absolute;
+    right:50%;
+    top:0px;
+    width:50%;
+    height:100%;
+    border-radius: 220px 0 0 220px;
+    border: 1px solid rgba(0,0,0,0);
+    border-right:none;
+    background-color: rgba(0,0,0,0.7);
+    z-index:303;
+    box-shadow: 4px 0 10px  #0f0f0f;
+}
+.spear{
+    position:absolute;
+    left:50%;
+    top:50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width:50%;
+    height:1px;
+    background-color: rgba(185, 7, 16, 0.5);
+    z-index: 300;
+}
+.spear:before{
+    content: '';
+    position: absolute;
+    border:7px solid transparent;
+    border-left-color:red;
+    left:1px;
+    top:-6px;
+}
+
+.spear:after{
+    content: '';
+    position: absolute;
+    border:7px solid transparent;
+    border-right-color: #bb0000;
+    right:0px;
+    top:-6px;
+}
+
+.dialer-second , .dialer-minute , .dialer-hour{
+    position:absolute;
+    margin:auto;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    border-radius: 50%;
+    transition:transform ease-in 0.2s;
+}
+
+/*居中span 然后用translateX + rotate 将其推到边缘*/
+.wrap >span ,.dialer-second span , .dialer-minute span , .dialer-hour span{
+    position:absolute;
+    text-align: center;
+    display: block;
+    margin:-10px 0  0 -10px;
+    width:20px;
+    height:20px;
+    line-height: 20px;
+    transform-origin: 50%;
+    -webkit-transform-origin: 50%;
+    top:50%;
+    left:50%;
+    z-index: 299;
+}
+
+.wrap > span{
+    text-indent: 1000px;
+    overflow: hidden;
+}
+.wrap > span:after{
+    content:'';
+    position:absolute;
+    top:50%;
+    bottom:50%;
+    width:2px;
+    height:2px;
+    background-color: #ced2d6;
+    z-index: 1000;
+}
+.wrap >span:nth-child(15n + 1):after{
+    width:5px;
+    height:3px;
+    background-color: #cec8d2;
+}
+
+.dialer > span{
+    content:'';
+    position:absolute;
+    tpo:50%;
+    bottom:50%;
+    right:-20px;
+    height:1px;
+    width:2px;
+    background-color: white;
+}
+
+.dialer-second span:after{
+    content:'';
+    position:absolute;
+    tpo:50%;
+    bottom:50%;
+    right:-20px;
+    height:1px;
+    width:2px;
+    background-color: #0f0f0f;
+}
+.dialer-second span:nth-child(5n+1):after{
+    width:6px;
+}
+
+
+.dialer-minute span:nth-child(5n+1):after{
+    content:'';
+    position:absolute;
+    tpo:50%;
+    bottom:50%;
+    right:-20px;
+    height:1px;
+    width:5px;
+    background-color: white;
+}
+
+.dialer-hour span:after{
+    content:'';
+    position:absolute;
+    tpo:50%;
+    bottom:50%;
+    right:-10px;
+    height:1px;
+    width:5px;
+    background-color: black;
+}
+
+.dialer-second{
+    width:100%;
+    height:100%;
+    background-color: white;
+    box-shadow: 0 0 20px black inset;
+    -webkit-box-shadow: 0 0 20px black inset;
+    z-index: 203;
+    font-size:18px;
+}
+
+
+.dialer-minute{
+    width:75%;
+    height:75%;
+    background-color: #363636;
+    box-shadow: 0 0 20px black inset;
+    -webkit-box-shadow: 0 0 20px black inset;
+    z-index: 203;
+    color:white;
+    font-weight:600;
+    font-size:17px;
+}
+
+.dialer-hour{
+    width:50%;
+    height:50%;
+    background-color: white;
+    box-shadow: 0 0 20px black inset;
+    -webkit-box-shadow: 0 0 20px black inset;
+    z-index: 203;
+    font-size:36px;
+    font-weight:600;
+}
+
+
+.decorator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position:absolute;
+    right:50%;
+    top:50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width:25%;
+    height:60%;
+    z-index:305;
+}
+
+.decorator .month , .decorator .time , .decorator .week{
+    text-align: center;
+    line-height: 1;
+    color:white;
+}
+
+.decorator .month {
+    font-size:1.2rem;
+}
+.decorator .time {
+    font-size:2.2rem;
+}
+.decorator .week {
+    font-size:1.2rem;
+}
+
+
